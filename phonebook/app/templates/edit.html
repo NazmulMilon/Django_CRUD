@@ -1,0 +1,73 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Update</title>
+
+</head>
+<body>
+
+
+<div class="small_div">
+
+<div class="container">
+    <br>
+    <h2>Student Update</h2>
+    <hr>
+
+    <form action="/update/{{ e.id }}" method="POST/" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <label class="form-group" for="name">Name: </label>
+        <input class="form-control" type="text" name="name" value="{{ e.name }}" placeholder="{{ e.name }}">
+
+        <label class="form-group" for="phone">Phone: </label>
+        <input class="form-control" type="text" name="phone" value="{{ e.phone }}" placeholder="{{ e.phone }}">
+
+        <label class="form-group" for="work_info">Work_Info: </label>
+        <input class="form-control" type="text" name="work_info" value="{{ e.work_info }}" placeholder="{{ e.work_info }}">
+
+        <label class="form-group" for="email">Email: </label>
+        <input class="form-control" type="text" name="email" value="{{ e.email }}" placeholder="{{ e.email }}">
+
+        <label class="form-group" for="address">Address: </label>
+        <input class="form-control" type="text" name="address" value="{{ e.address }}" placeholder="{{ e.address }}">
+
+        
+        <div>
+        {% if e.image %}
+        <img src="{{ e.image.url }}" alt="" height="40px" width="40px">
+        {% endif %}
+        <label class="form-group" for="image">Image: </label>
+        <input type="file" class="form-control" name="image" value="{{ e.image }}" placeholder="{{ e.image }}">
+        </div>
+        
+        <br>
+
+        <input class="btn btn-primary" type="submit" value="update">
+
+    </form>
+
+
+</div>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</html>
